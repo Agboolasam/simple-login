@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#form-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  transition: ease-in-out 5ms smooth;
+}
+form {
+  border-radius: 10px;
+}
+#login-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 20px;
+  background-color: darkgrey;
+  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.5);
+}
+
+#signup-form {
+  display: none;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 20px;
+  background-color: darkgrey;
+  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.5);
+}
+
+input {
+  text-align: center;
+  padding: 5px;
+  font-size: 15px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: lightgrey;
+  transition: cubic-bezier(0.895, 0.03, 0.685) 20ms;
+}
+
+input:focus {
+  border-bottom: solid green 3px;
+}
+
+button {
+  font-size: 15px;
+  background-color: lightgreen;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 4px;
+  outline: none;
+  border: none;
+  color: black;
+}
+
+#errorMsg {
+  display: none;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.5);
+  color: red;
+  font-size: 20px;
+}
