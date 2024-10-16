@@ -19,7 +19,7 @@ form {
 #login-form {
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
+  row-gap: 10px;
   padding: 20px;
   background-color: darkgrey;
   box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.5);
@@ -35,6 +35,7 @@ form {
 }
 
 input {
+  margin: 0;
   text-align: center;
   padding: 5px;
   font-size: 15px;
@@ -60,11 +61,10 @@ button {
   color: black;
 }
 
-#errorMsg {
-  display: none;
-  padding: 20px;
-  background-color: white;
-  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.5);
+.errorMessages {
+  display: block;
+  margin: 0;
   color: red;
-  font-size: 20px;
+  font-size: 16px;
+  transition: ease-in-out 200ms;
 }

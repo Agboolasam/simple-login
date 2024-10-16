@@ -8,27 +8,28 @@
   </head>
   <body>
     <div id="form-container">
-      <p id="errorMsg">kbkfbkfbkbfdbdkfbbfkb</p>
       <form action="" id="login-form">
         <h3>Login</h3>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          required
-          aria-required="true"
-          placeholder="Input Email"
-          aria-placeholder="Input Email"
-        />
-        <input
-          type="password"
-          name="password"
-          id="password"
-          required
-          aria-required="true"
-          placeholder="Input Password"
-          aria-placeholder="Input Password"
-        />
+        <div>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Input Email"
+            aria-placeholder="Input Email"
+          />
+          <p id="emailErrmsg2" class="errorMessages"></p>
+        </div>
+        <div>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Input Password"
+            aria-placeholder="Input Password"
+          />
+          <p id="pswdErrmsg3" class="errorMessages"></p>
+        </div>
         <span>
           <input
             type="checkbox"
@@ -52,51 +53,57 @@
 
       <form action="" id="signup-form" onsubmit="return regComp()">
         <h3>Register</h3>
-        <input
-          type="text"
-          name="fullname"
-          id="full-name"
-          required
-          aria-required="true"
-          placeholder="Full Name"
-          aria-placeholder="Full name"
-        />
-        <input
-          type="email"
-          name="email"
-          id="email2"
-          required
-          aria-required="true"
-          placeholder="Input Email"
-          aria-placeholder="Input Email"
-        />
-        <input
-          type="number"
-          name="age"
-          id="age"
-          required
-          aria-required="true"
-          placeholder="Input Age"
-          aria-placeholder="Input Age"
-        />
-        <input
-          type="password"
-          name="password"
-          id="password2"
-          required
-          aria-required="true"
-          placeholder="Input Password"
-          aria-placeholder="Input Password"
-        />
-        <input
-          type="password"
-          name="confirm-password"
-          id="confirm-password"
-          required
-          aria-required="true"
-          placeholder="Confirm Password"
-          aria-placeholder="Confirm Password"
-        />
+        <div>
+          <input
+            type="text"
+            name="fullname"
+            id="full-name"
+            placeholder="Full Name"
+            aria-placeholder="Full name"
+          />
+          <p id="fnErrormsg" class="errorMessages"></p>
+        </div>
+        <div>
+          <input
+            type="text"
+            name="email"
+            id="email2"
+            placeholder="Input Email"
+            aria-placeholder="Input Email"
+          />
+          <p id="emailErrmsg" class="errorMessages"></p>
+        </div>
+
+        <div>
+          <input
+            type="tel"
+            name="phoneNumber"
+            id="phoneNumber"
+            placeholder="Input Phone Number"
+            aria-placeholder="Input Phone number"
+          />
+          <p id="telErrmsg" class="errorMessages"></p>
+        </div>
+        <div>
+          <input
+            type="password"
+            name="password"
+            id="password2"
+            placeholder="Input Password"
+            aria-placeholder="Input Password"
+          />
+          <p id="pswdErrmsg" class="errorMessages"></p>
+        </div>
+        <div>
+          <input
+            type="password"
+            name="confirm-password"
+            id="confirm-password"
+            placeholder="Confirm Password"
+            aria-placeholder="Confirm Password"
+          />
+          <p id="pswdErrmsg2" class="errorMessages"></p>
+        </div>
 
         <span>
           <input
@@ -106,6 +113,10 @@
             onclick="isChecked()"
           />
           <label for="view-pswd"> View Password</label>
+        </span>
+        <span>
+          <input type="checkbox" name="agree-tnc" id="agree-tnc" />
+          <label for="agree-tnc"> Agree to Terms and Conditions</label>
         </span>
 
         <button type="submit" onsubmit="regComp()">Register</button>
@@ -119,66 +130,6 @@
         >
       </form>
     </div>
-
-    <script>
-      let pswd = document.getElementById("password");
-      let pswd2 = document.getElementById("password2");
-      let pswd3 = document.getElementById("confirm-password");
-      const viewPswd = document.getElementById("view-pswd");
-      const viewPswd2 = document.getElementById("view-pswd2");
-      const logInForm = document.getElementById("login-form");
-      const signUpForm = document.getElementById("signup-form");
-      const errorMsg = document.getElementById("errorMsg");
-
-      function isChecked() {
-        if (viewPswd.checked || viewPswd2.checked) {
-          pswd.type = "text";
-          pswd2.type = "text";
-          pswd3.type = "text";
-        } else {
-          pswd.type = "password";
-          pswd2.type = "password";
-          pswd3.type = "password";
-        }
-      }
-
-      function register() {
-        logInForm.style.display = "none";
-        signUpForm.style.display = "flex";
-      }
-      function logIn() {
-        logInForm.style.display = "flex";
-        signUpForm.style.display = "none";
-        errorMsg.style.display = "none";
-      }
-
-      function regComp() {
-        if (
-          pswd2.value !== pswd3.value &&
-          document.getElementById("age").value >= 18
-        ) {
-          errorMsg.innerHTML = "Password mismatch";
-          errorMsg.style.display = "block";
-          return false;
-        } else if (
-          pswd2.value == pswd3.value &&
-          document.getElementById("age").value < 18
-        ) {
-          errorMsg.innerHTML = "Age must be more than 18";
-          errorMsg.style.display = "block";
-          return false;
-        } else if (
-          pswd2.value !== pswd3.value &&
-          document.getElementById("age").value < 18
-        ) {
-          errorMsg.innerHTML = "Password mismatch and Age must be more than 18";
-          errorMsg.style.display = "block";
-          return false;
-        } else {
-          errorMsg.style.display = "none";
-          return true;
-        }
-      }
-    </script>
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
