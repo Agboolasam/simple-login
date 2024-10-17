@@ -8,7 +8,7 @@
   </head>
   <body>
     <div id="form-container">
-      <form action="" id="login-form">
+      <form action="" id="login-form" onsubmit="return signIn()">
         <h3>Login</h3>
         <div>
           <input
@@ -119,7 +119,7 @@
           <label for="agree-tnc"> Agree to Terms and Conditions</label>
         </span>
 
-        <button type="submit" onsubmit="regComp()">Register</button>
+        <button type="submit">Register</button>
         <span style="margin: 10px"
           >Have an account already?
           <span
@@ -130,6 +130,7 @@
         >
       </form>
     </div>
-    <script type="module" src="./index.js"></script>
+    <!-- <script type="module" src="./index.js"></script> -->
   </body>
+  <script src="index.js"></script>
 </html>
