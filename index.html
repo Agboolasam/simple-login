@@ -129,7 +129,38 @@
           ></span
         >
       </form>
+
+      <div id="feedback">
+        <form
+          action="https://api.web3forms.com/submit"
+          method="post"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <input
+            type="hidden"
+            name="access_key"
+            value="67ace8bd-42cb-4552-9c9b-169a1b0933b7"
+          />
+          <input type="text" id="name" placeholder="Input fullname" />
+          <textarea
+            name="feedback"
+            id="feedback-input"
+            placeholder="write your feedback here "
+            style="height: 100px; width: 100px"
+          >
+          "write your feedback here "
+          </textarea>
+          <input id="redirect" type="hidden" name="redirect" value="" />
+          <button type="submit">Send FeedBack</button>
+        </form>
+      </div>
     </div>
+
     <!-- <script type="module" src="./index.js"></script> -->
   </body>
   <script src="index.js"></script>

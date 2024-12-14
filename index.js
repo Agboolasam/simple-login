@@ -6,6 +6,10 @@
 //   passwordError,
 //   emailError,
 // } from "./scripts/formErrorHandlers.js";
+const baseUrl = `${window.location.protocol}//${window.location.host}`;
+let reDirectPath = document.getElementById("redirect");
+reDirectPath.value = `${baseUrl}/success.html `;
+console.log(baseUrl);
 
 let pswd = document.getElementById("password");
 let pswd2 = document.getElementById("password2");
@@ -19,18 +23,32 @@ const signUpForm = document.getElementById("signup-form");
 function setError(element, errMsg) {
   element.textContent = errMsg;
 }
+
 //check emailpattern
 function validateEmail(email) {
+  //save the email inputs and password inputs
+  let emailInput;
+
+  email.addEventListener("input", () => {
+    emailInput = this.value;
+  });
+
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  console.log(regex.test(email.value));
-  return regex.test(email.value);
+  console.log(regex.test(emailInput));
+  console.log(emailInput);
+  formValidity = regex.test(emailInput);
 }
 // check password and strength
 function validatePassword(password) {
+  let passwordInput;
+  password.addEventListener("input", () => {
+    passwordInput = this.value;
+  });
   const regex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]$/;
-  console.log(regex.test(password.value));
-  return regex.test(password.value);
+  console.log(regex.test(passwordInput));
+  console.log(passwordInput);
+  formValidity = regex.test(passwordInput);
 }
 //email error handler setup
 function emailError(email, emailErr) {
@@ -147,6 +165,8 @@ function regComp() {
   checkNumber(phoneNumber, telErrmsg);
   passwordError(password2, pswdErrmsg);
   checkPass(pswd2, pswd3, pswdErrmsg2);
+  validateEmail(regEmail);
+  validatePassword(password2);
   // checkPass(pswd2, pswd3, pswdErrmsg);
   console.log(formValidity);
   return formValidity;
@@ -162,7 +182,7 @@ function signIn() {
   clearError();
   passwordError(password, pswdErrmsg3);
   emailError(email, emailErrmsg2);
-  validateEmail(email.value);
-  validatePassword(password.value);
+  validateEmail(email);
+  validatePassword(password);
   return formValidity;
 }
